@@ -3,8 +3,8 @@
 @section('contenido')
     <main>
         <div class="container py-4">
-            <h2>Post Publicados</h2>
-            <a href="{{ url('post/create') }}" class="btn btn-primary btn-sm">Crear Post</a>
+            <h2>Administración de empresas</h2>
+            <a href="{{ url('post/create') }}" class="btn btn-primary btn-sm">Agregar Materia</a>
         </div>
     </main>
     <br>
@@ -18,10 +18,7 @@
                     Nombre
                 </td>
                 <td>
-                    Descripción
-                </td>
-                <td>
-                    Estado Publicación
+                    Docente
                 </td>
                 <td>
                     Creación
@@ -45,9 +42,6 @@
                 </td>
                 <td>
                     {{ $post->description }}
-                </td>
-                <td>
-                    {{ $post->posted }}
                 </td>
                 <td>
                     {{ $post->created_at->format('d-m-y') }}
