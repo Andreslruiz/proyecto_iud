@@ -48,7 +48,7 @@
                                         <a href="{{ url('roles/'.$role->id.'/edit') }}">Editar</a>
                                     </td>
                                     <td>
-                                        <form action="{{ url('roles/'.$role->id) }}" method="post">
+                                        <form action="{{ url('roles/'.$role->id) }}" method="administracion">
                                             @method("DELETE")
                                             @csrf
                                             <button class="bi bi-eraser-fill" type="submit">Eliminar</button>

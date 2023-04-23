@@ -14,7 +14,7 @@
                 <div class="container py-5 text-center">
                     <h1 class="display-4 font-weight-bold">Administración de empresas</h1>
                     <p class="font-italic mb-0">La administración no tiene sueños, tiene un plan estrategico.</p>
-                    <a href="{{ url('post') }}" role="button" class="btn btn-primary px-5">Ver Malla Curricular</a>
+                    <a href="{{ url('administracion') }}" role="button" class="btn btn-primary px-5">Ver Malla Curricular</a>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="container py-5 text-center">
                     <h1 class="display-4 font-weight-bold">Ingenieria de Software</h1>
                     <p class="font-italic mb-0">Caon la revolución tecnologica, el desarrollo ha llegado para cambiar el mundo.</p>
-                    <a href="{{ url('category') }}" role="button" class="btn btn-primary px-5">Ver Malla Curricular</a>
+                    <a href="{{ url('desarrollo') }}" role="button" class="btn btn-primary px-5">Ver Malla Curricular</a>
                 </div>
             </div>
         </div>

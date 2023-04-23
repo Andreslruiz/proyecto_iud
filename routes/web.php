@@ -13,8 +13,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resources(['/post' => PostController::class]);
-Route::resources(['/category' => CategoryController::class]);
+Route::resources(['/administracion' => PostController::class]);
+Route::resources(['/desarrollo' => CategoryController::class]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

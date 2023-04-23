@@ -4,15 +4,15 @@
 <br>
 <div class="row">
     <div class="form-group">
-        <label for="name">Articulo</label>
-        <input type="text" name="name" id="name" value="{{ old('name', $post->name) }}">
+        <label for="name">Nombre Materia</label>
+        <input type="text" name="name" id="name" value="{{ old('name', $desarrollo->name) }}">
     </div>
 </div>
 
 <div class="row">
     <div class="form-group">
-        <label for="description">Contenido</label>
-        <input type="text" name="description" id="description" value="{{ old('description', $post->description) }}">
+        <label for="description">Docente</label>
+        <input type="text" name="description" id="description" value="{{ old('description', $desarrollo->description) }}">
     </div>
 </div>
 

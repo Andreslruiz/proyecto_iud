@@ -22,7 +22,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     @include('dashboard.partials.validation-error')
-                    <form action="{{ url('roles/'.$role->id) }}" method="post">
+                    <form action="{{ url('roles/'.$role->id) }}" method="administracion">
                         @csrf
                         @method("PUT")
                         <div class="mb-3 row">

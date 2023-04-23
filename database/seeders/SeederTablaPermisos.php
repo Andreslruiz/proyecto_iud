@@ -18,14 +18,14 @@ class SeederTablaPermisos extends Seeder
             'crear-rol',
             'editar-rol',
             'borrar-rol',
-            'ver-category',
-            'crear-category',
-            'editar-category',
-            'borrar-category',
-            'ver-post',
-            'crear-post',
-            'editar-post',
-            'borrar-post',
+            'ver-desarrollo',
+            'crear-desarrollo',
+            'editar-desarrollo',
+            'borrar-desarrollo',
+            'ver-administracion',
+            'crear-administracion',
+            'editar-administracion',
+            'borrar-administracion',
         ];
 
         foreach($permisos as $permiso){

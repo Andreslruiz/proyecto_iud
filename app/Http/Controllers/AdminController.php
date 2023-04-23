@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\post;
+use App\Models\administracion;
 use App\Http\Requests\StorePost;
 use Illuminate\Http\Request;
 class PostController extends Controller
@@ -12,8 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {   
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
-        return view('dashboard.post.index', ['posts'=>$posts]);
+        $posts = administracion::orderBy('created_at', 'desc')->paginate(5);
+        return view('dashboard.administracion.index', ['posts'=>$posts]);
     }
 
     /**
@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {   
-        return view('dashboard.post.create', ['post' => new Post()]);
+        return view('dashboard.administracion.create', ['administracion' => new administracion()]);
     }
 
     /**
@@ -31,41 +31,41 @@ class PostController extends Controller
      */
     public function store(StorePost $request)
     {
-        Post::create($request->validated());
+        administracion::create($request->validated());
         return back()->with('status', 'Publicación creada con éxito');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(post $post)
+    public function show(administracion $administracion)
     {
-        return view('dashboard.post.show', ["post" => $post]);
+        return view('dashboard.administracion.show', ["administracion" => $administracion]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(post $post)
+    public function edit(administracion $administracion)
     {
-        return view('dashboard.post.edit', ["post" => $post]);
+        return view('dashboard.administracion.edit', ["administracion" => $administracion]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StorePost $request, post $post)
-    {
-        $post->update($request->validated());
+    public function update(StorePost $request, administracion $administracion)
+    {   
+        $administracion->update($request->validated());
         return back()->with('status', 'Publicación editada con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(post $post)
+    public function destroy(administracion $administracion)
     {
-        $post->delete();
+        $administracion->delete();
         return back()->with('status', 'Publicación eliminada con éxito');
     }
 }

@@ -2,10 +2,11 @@
 @section('contenido')
 @include('dashboard.partials.validation-error')
 
-<form action="{{ route('post.update', $post->id) }}" method="POST">
+<form action="{{ route('administracion.update', $administracion->id) }}" method="administracion">
     <br>
     <br>
+    
     @method('PUT')
-    @include('dashboard.post._form')
+    @include('dashboard.administracion._form')
 </form>
 @endsection

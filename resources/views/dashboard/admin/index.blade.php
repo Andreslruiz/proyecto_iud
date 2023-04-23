@@ -1,10 +1,12 @@
 @extends('dashboard.master')
-@section('titulo', 'Category')
+@section('titulo', 'Poster')
 @section('contenido')
     <main>
         <div class="container py-4">
-            <h2>Categorias Creadas</h2>
-            <a href="{{ url('category/create') }}" class="btn btn-primary btn-sm">Crear Categoria</a>
+            <h2>Administración de empresas</h2>
+            @if(Auth::user()->name != 'estudiante')
+            <a href="{{ url('administracion/create') }}" class="btn btn-primary btn-sm">Agregar Materia</a>
+            @endif
         </div>
     </main>
     <br>
@@ -15,10 +17,10 @@
                     ID
                 </td>
                 <td>
-                    Nombre
+                    Materia
                 </td>
                 <td>
-                    Descripción
+                    Docente
                 </td>
                 <td>
                     Creación
@@ -32,27 +34,30 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($categories as $category)
+            @foreach($posts as $administracion)
             <tr>
                 <td>
-                    {{ $category->id }}
+                    {{ $administracion->id }}
                 </td>
                 <td>
-                    {{ $category->name }}
+                    {{ $administracion->name }}
                 </td>
                 <td>
-                    {{ $category->description }}
+                    {{ $administracion->description }}
                 </td>
                 <td>
-                    {{ $category->created_at->format('d-m-y') }}
+                    {{ $administracion->created_at->format('d-m-y') }}
                 </td>
                 <td>
-                    {{ $category->updated_at->format('d-m-y') }}
+                    {{ $administracion->updated_at->format('d-m-y') }}
                 </td>
                 <td>
-                    <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary">Ver</a>
-                    <a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary">Actualizar</a>
-                    <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $category->id }}" class="btn btn-danger">Eliminar</button>
+                    @if(Auth::user()->name == 'estudiante')
+                    <a href="{{ route('administracion.show', $administracion->id) }}" class="btn btn-primary">Ver</a>
+                    @else
+                    <a href="{{ route('administracion.edit', $administracion->id) }}" class="btn btn-primary">Actualizar</a>
+                    <button data-toggle="modal" data-target="#deleteModal" data-id="{{ $administracion->id }}" class="btn btn-danger">Eliminar</button>
+                    @endif
                 </td>
             </tr>
             @endforeach
@@ -69,12 +74,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Seguro desea eliminar esta categoria ?</p>
+                    <p>Seguro desea eliminar esta materia ?</p>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="close-modal">Cerrar</button>
-                <form id="formDelete" method="POST" action="{{ route('category.destroy', 0) }}"
-                data-action="{{ route('category.destroy', 0) }}">
+                <form id="formDelete" method="administracion" action="{{ route('administracion.destroy', 0) }}"
+                data-action="{{ route('administracion.destroy', 0) }}">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger">Borrar</button>
@@ -93,7 +98,7 @@
                 action += id
                 $('#formDelete').attr('action', action)
                 var modal = $(this)
-                modal.find('.modal-title').text('Vas a borrar la categoria numero: ' + id)
+                modal.find('.modal-title').text('Vas a borrar la materia numero: ' + id)
             });
         };
     </script>
